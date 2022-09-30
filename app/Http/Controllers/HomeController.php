@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormAusarRequest;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
@@ -30,18 +30,11 @@ class HomeController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param FormAusarRequest $request
      * @return \Illuminate\Contracts\Foundation\Application|RedirectResponse|Redirector
      */
-    public function store(Request $request): Redirector|\Illuminate\Contracts\Foundation\Application|RedirectResponse
+    public function store(FormAusarRequest $request)
     {
-        $request->validate([
-            'firstName' => 'required|string|max:255',
-            'lastName' => 'required|string|max:255',
-            'middleName' => 'string|max:255',
-            'dateOfBirth' => 'required|date_format:Y-m-d|string|max:255',
-        ]);
-
         return Redirect::route('home');
     }
 }

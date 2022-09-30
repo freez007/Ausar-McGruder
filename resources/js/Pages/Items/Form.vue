@@ -16,7 +16,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('home'), {
+    form.post(route('send-form'), {
         onSuccess: () => {
             notify({
                 title: "Form submitted successfully",

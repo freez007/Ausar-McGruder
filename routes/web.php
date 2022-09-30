@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +18,6 @@ use Inertia\Inertia;
  * REST Route for Form
  */
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::post('/', [HomeController::class, 'store'])->name('home');
-
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::post('/', [HomeController::class, 'store'])->name('send-form');
 
 require __DIR__.'/auth.php';
